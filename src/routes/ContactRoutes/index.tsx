@@ -1,12 +1,18 @@
-import { ContainerBody } from "../../components/Layout/ContainerBody";
-import { Contact } from "../../pages/Contact";
+import { lazy, Suspense } from 'react';
+const Contact = lazy(() => import('@/pages/Contact'));
+const ContainerBody = lazy(() => import('@/components/Layout/ContainerBody'))
+
 
 export const ContactRoutes = [
     {
         path: 'contact',
-        element: <ContainerBody/>, 
+        element: <Suspense fallback={<div>Loading...</div>} >
+                <ContainerBody/>
+            </Suspense>, 
         children: [
-            { path: '', element: <Contact /> }
+            { path: '', element: <Suspense fallback={<div>Loading...</div>} >
+                <Contact />
+            </Suspense> }
         ]
     },
 ]

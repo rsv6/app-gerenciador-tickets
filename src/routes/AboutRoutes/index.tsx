@@ -1,12 +1,17 @@
-import { ContainerBody } from "../../components/Layout/ContainerBody";
-import { About } from "../../pages/About";
+import { lazy, Suspense } from 'react';
+const ContainerBody = lazy(() => import('@/components/Layout/ContainerBody'))
+const About = lazy(() => import('@/pages/About'));
 
-export const AboutRouter = [
+export const AboutRoutes = [
     {
         path: 'about',
-        element: <ContainerBody/>, 
+        element: <Suspense fallback={<div>Loading...</div>}>
+                <ContainerBody/>
+            </Suspense>, 
         children: [
-            { path: '', element: <About /> }
+            { path: '', element: <Suspense fallback={<div>Loading...</div>}>
+                <About />
+            </Suspense> }
         ]
     },
 ];
