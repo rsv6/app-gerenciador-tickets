@@ -1,19 +1,22 @@
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router';
-import { SignInRouter } from './SignInRoutes';
-import { AboutRouter } from './AboutRoutes';
+import { SignInRoutes } from './SignInRoutes';
+import { AboutRoutes } from './AboutRoutes';
 import { ContactRoutes } from './ContactRoutes';
-import { Layout } from '../components/Layout';
+const Layout = lazy(() => import('../components/Layout'));
 import { NotFound } from '../pages/NotFound';
 import { DashboardRoutes } from './DashboardRoutes';
 import { AdminRoutes } from './AdminRoutes';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Layout />,
+    path: '',
+    element: <Suspense fallback={<div>Loading...</div>} >
+        <Layout />
+      </Suspense>,
     children: [
-      ...SignInRouter,
-      ...AboutRouter,
+      ...SignInRoutes,
+      ...AboutRoutes,
       ...ContactRoutes,
       ...DashboardRoutes,
       ...AdminRoutes,

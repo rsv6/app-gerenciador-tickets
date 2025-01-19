@@ -1,12 +1,17 @@
-import { SignIn } from "../../pages/SignIn";
-import { ContainerBody } from "../../components/Layout/ContainerBody";
+import { lazy, Suspense } from 'react';
+const SignIn = lazy(() => import('@/pages/SignIn'));
+const ContainerBody = lazy(() => import('@/components/Layout/ContainerBody'))
 
-export const SignInRouter = [
+
+export const SignInRoutes = [
     {
         path: '',
-        element: <ContainerBody/>, 
+        element: <Suspense fallback={<div>Loading...</div>} >
+                <ContainerBody/></Suspense>, 
         children: [
-            { path: '', element: <SignIn /> }
+            { path: '', element: <Suspense fallback={<div>Loading...</div>} >
+                <SignIn />
+            </Suspense> }
         ]
     },
 ];
