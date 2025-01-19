@@ -6,7 +6,8 @@ export const AboutRoutes = [
     {
         path: 'about',
         element: <Suspense fallback={<div>Loading...</div>}>
-                <ContainerBody/></Suspense>, 
+                <ContainerBody/>
+            </Suspense>, 
         children: [
             { path: '', element: <Suspense fallback={<div>Loading...</div>}>
                 <About />

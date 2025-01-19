@@ -1,0 +1,26 @@
+.input-email {
+    @apply
+        max-w-[13rem]
+        min-w-[13rem]
+}
+
+.input-senha {
+    @apply
+        max-w-[13rem]
+        min-w-[13rem]
+}
+
+.button-singin {
+    @apply 
+        max-w-[13rem]
+        min-w-[13rem]
+        bg-green-600
+        text-primary-foreground 
+        shadow
+        hover:bg-green-700
+        font-medium
+        py-[.6rem]
+        px-2
+        rounded-sm
+    ;
+}

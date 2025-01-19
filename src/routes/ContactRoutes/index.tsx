@@ -7,7 +7,8 @@ export const ContactRoutes = [
     {
         path: 'contact',
         element: <Suspense fallback={<div>Loading...</div>} >
-                <ContainerBody/></Suspense>, 
+                <ContainerBody/>
+            </Suspense>, 
         children: [
             { path: '', element: <Suspense fallback={<div>Loading...</div>} >
                 <Contact />

@@ -11,8 +11,6 @@ const ContainerBody = () => {
     const currentPath = pathNames.find((path) => 
         path.path === pathname && pathname !== '/'
     )?.name;
-
-    console.log(currentPath);
     
     useEffect(() => {
         if (currentPath) {
